@@ -2,21 +2,16 @@
 
 ## Description
 
-This is a Symfony project that [briefly describe the purpose or main functionality of your project].
+Blog project to learn Symfony
 
 ## Table of Contents
 
-- [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
-
-## Features
-
-- List the key features of your Symfony project.
 
 ## Prerequisites
 
