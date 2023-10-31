@@ -9,5 +9,10 @@
 
         <button type="submit" class="mt-6 inline-block w-full bg-indigo-500 hover:bg-indigo-600 text-white rounded shadow p-4" formnovalidate>Send</button>
         {{ form_end(form) }}
+
+        <form action="{{ path('post_delete', {id: post.id}) }}" method="post" class="flex mt-6 justify-center">
+            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ post.id) }}" />
+            <button type="submit" class="btn btn-error">Supprimer</button>
+        </form>
     </div>
 {% endblock %}

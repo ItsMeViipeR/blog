@@ -62,6 +62,19 @@ class PostController extends AbstractController
 
         return $this->render("post/edit.html.twig", [
             "form" => $form,
+            'post' => $post,
         ]);
+    }
+
+    #[Route("/post/delete/{id}", name: "post_delete", requirements: ["id" => "\d+"], methods: ["POST"])]
+    public function delete(Post $post, Request $request, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$post->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($post);
+            $entityManager->flush();
+        }
+
+        $this->addFlash('success', 'Article supprimé avec succès !');
+        return $this->redirectToRoute('app_post');
     }
 }
