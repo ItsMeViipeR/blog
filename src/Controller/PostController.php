@@ -77,4 +77,12 @@ class PostController extends AbstractController
         $this->addFlash('success', 'Article supprimé avec succès !');
         return $this->redirectToRoute('app_post');
     }
+
+    #[Route("/post/show/{id}", name: "post_show", requirements: ["id" => "\d+"], methods: ["GET"])]
+    public function show(Post $post): Response
+    {
+        return $this->render("post/show.html.twig", [
+            "post" => $post,
+        ]);
+    }
 }
